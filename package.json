@@ -1,0 +1,10 @@
+{
+  "name": "jenkins-demo-app",
+  "version": "1.0.0",
+  "description": "Simple node app for jenkins pipeline",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {}
+}
