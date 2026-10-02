@@ -17,11 +17,11 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                    // Forcefully purana container stop aur remove kar do
+                    // Purana container hatao
                     bat "\"C:\\Users\\GuestUser\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe\" rm -f running-app || ver > nul"
                     
-                    // Naya container chalao
-                    bat "\"C:\\Users\\GuestUser\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe\" run -d --name running-app -p 8080:8080 my-node-app:${env.BUILD_NUMBER}"
+                    // Port 8081 use karte hain taaki conflict na ho (Host: 8081 -> Container: 8080)
+                    bat "\"C:\\Users\\GuestUser\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe\" run -d --name running-app -p 8081:8080 my-node-app:${env.BUILD_NUMBER}"
                 }
             }
         }
